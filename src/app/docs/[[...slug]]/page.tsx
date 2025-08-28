@@ -1,3 +1,30 @@
+// Di Next.js (khususnya di Next.js Router),
+// catch-all segment adalah cara untuk menangkap semua segmen URL setelah path tertentu.
+
+// Biasanya ditulis dengan format:
+// pages/blog/[...slug].js
+// [...slug] artinya: semua segmen setelah /blog/ akan ditangkap ke dalam array bernama slug.
+
+// Misalnya:
+// /blog/hello → slug = ["hello"]
+// /blog/hello/world → slug = ["hello", "world"]
+// /blog/a/b/c → slug = ["a", "b", "c"]
+
+// Optional Catch-all Segment
+// Kalau pakai double dot ([[...slug]]) maka route bisa diakses tanpa parameter.
+// pages/docs/[[...slug]].js
+// /docs → slug = undefined
+// /docs/setup → slug = ["setup"]
+// /docs/setup/installation → slug = ["setup", "installation"]
+
+// 📌 Kapan dipakai?
+// Untuk dynamic routing dengan banyak kemungkinan segmen.
+
+// Contoh nyata:
+// Blog dengan nested category (/blog/tech/javascript/nextjs)
+// Documentation website (/docs/getting-started/installation)
+// File explorer (/files/users/documents/report.pdf)
+
 interface DocsProps {
   params: {
     slug: string[];
